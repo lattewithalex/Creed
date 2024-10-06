@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+}
+
+#order-form,
+#inventory-list {
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+input,
+select,
+button {
+  padding: 8px;
+  margin: 5px 0;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.inventory-category {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #4caf50;
+  color: white;
+}
+
+input[type="number"] {
+  width: 60px;
+}
+
+/* Foldable category styles */
+.category-header {
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+.category-content {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.category-header:hover {
+  background-color: #45a049;
+}

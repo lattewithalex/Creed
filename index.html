@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creed Coffee Roasters - Inventory and Order Management</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Creed Coffee Roasters - Inventory and Order Management</h1>
+
+  <div id="order-form">
+    <h2>Place New Order</h2>
+    <form id="orderForm">
+      <input type="date" id="orderDate" required>
+      <input type="text" id="sign" placeholder="Sign" required>
+      <select id="branch" required>
+        <option value="">Select Branch</option>
+        <option value="Rathmines">Rathmines</option>
+        <option value="Pears St">Pears St</option>
+      </select>
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <div id="inventory-list">
+    <h2>Inventory Checklist</h2>
+    <!-- Inventory tables will be dynamically added here -->
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
