@@ -1,37 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Creed Coffee Roasters - Inventory and Order Management</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creed Coffee Roasters Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+<script defer data-domain="creed-manager.tiiny.site" src="https://analytics.tiiny.site/js/plausible.js"></script><script type="text/javascript" src="https://tiiny.host/ad-script.js"></script></head>
 <body>
-  <h1>Creed Coffee Roasters - Inventory and Order Management</h1>
-
-  <div id="order-form">
-    <h2>Place New Order</h2>
-    <form id="orderForm">
-      <input type="date" id="orderDate" required>
-      <input type="text" id="sign" placeholder="Sign" required>
-      <select id="branch" required>
-        <option value="">Select Branch</option>
-        <option value="Rathmines">Rathmines</option>
-        <option value="Pears St">Pears St</option>
-      </select>
-      <button type="submit">Place Order</button>
-    </form>
-  </div>
-
-  <div id="inventory-list">
-    <h2>Inventory Checklist</h2>
-    <!-- Inventory tables will be dynamically added here -->
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
-  <script src="script.js"></script>
+    <div class="container">
+        <h1>Creed Coffee Roasters Dashboard</h1>
+        <div class="tabs">
+            <button class="tab-button active" data-tab="inventory">Inventory</button>
+            <button class="tab-button" data-tab="payouts">Payouts</button>
+            <button class="tab-button" data-tab="foodRecords">Food Records</button>
+            <button class="tab-button" data-tab="coffeeRecipe">Coffee Recipe</button>
+        </div>
+        
+        <div id="inventory" class="tab-content">
+            <h2>Inventory and Order Management</h2>
+            <form id="order-form">
+                <input type="date" id="orderDate" name="orderDate"  required>
+                <input type="text" id="sign" name="sign" placeholder="Sign" required>
+                <input type="text" id="branch" name="branch" placeholder="Branch" required>
+                <div id="inventory-list"></div>
+                <button id="generate-payouts-pdf">Generate Order PDF</button>
+            </form>
+        </div>
+        
+        <div id="payouts" class="tab-content">
+            <h2>Payouts</h2>
+            <form id="payout-form">
+                <input type="text" id="payoutItem" placeholder="Item" required>
+                <input type="number" id="payoutAmount" step="0.01" min="0" lang="en" value="" placeholder="Amount" required>
+                <input type="date" id="payoutDate" required> 
+                <input type="text" id="payoutSigned" placeholder="Signed" required>
+                <button type="submit">Add Payout</button>
+            </form>
+            <div id="payouts-list"></div>
+            <button id="generate-payout-pdf">Generate Payouts PDF</button>
+        </div>
+        
+        <div id="foodRecords" class="tab-content">
+            <h2>Food Records</h2>
+            <form id="food-record-form">
+                <input type="date" id="foodDate" required>
+                <input type="text" id="foodItem" placeholder="Food Item" required>
+                <input type="text" id="foodProvider" placeholder="Provided by" required>
+                <input type="text" id="foodComments" placeholder="Comments">
+                <input type="text" id="foodSigned" placeholder="Signed" required>
+                <button type="submit">Add Record</button>
+            </form>
+            <ul id="food-records-list"></ul>
+            <button id="generate-food-records-pdf">Generate Food Records PDF</button>
+        </div>
+        
+        <div id="coffeeRecipe" class="tab-content">
+            <h2>Coffee Recipe</h2>
+            <form id="recipe-form">
+                <input type="date" id="recipeDate" required>
+                <input type="text" id="recipe" placeholder="Recipe" required>
+                <input type="text" id="recipeComments" placeholder="Comments">
+                <input type="text" id="recipeSigned" placeholder="Signed" required>
+                <button type="submit">Save Recipe</button>
+            </form>
+            <div id="saved-recipe"></div>
+            <button id="generate-recipe-pdf">Generate Recipe PDF</button>
+        </div>
+    </div>
+    
+    
 </body>
-
 </html>
